@@ -1,0 +1,8 @@
+result
+result-*
+*gc-roots*
+.direnv
+.envrc.local
+.vscode/
+.idea/
+*.swp
