@@ -12,5 +12,7 @@
     openssh
     inetutils # ftp, telnet, etc
     netcat
+    proxychains
+    freerdp
   ];
 }
