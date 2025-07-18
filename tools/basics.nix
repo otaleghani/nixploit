@@ -14,5 +14,7 @@
     netcat
     proxychains
     freerdp
+    putty
+    sshuttle
   ];
 }
