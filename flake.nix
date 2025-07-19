@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # Add the different github repositories for tools etc
   };
 
   outputs = { self, nixpkgs }:
@@ -22,6 +23,9 @@
         shellHook = ''
           echo "Welcome to nixploit"
           echo "Loaded ${toString (lib.length packages)} tools."
+
+          # Find a way to add temporary configurations
+          # ln -sf ${self}/proxychains.conf $HOME/.proxychains/proxychains.conf
         '';
       };
     };

@@ -6,7 +6,6 @@
     tmux
     curl
     wget
-    python314
     openssl
     openvpn
     openssh
@@ -16,5 +15,19 @@
     freerdp
     putty
     sshuttle
+    chisel
+
+    autoconf 
+    automake 
+    libtool 
+    pkg-config 
+    libpcap
+    glibc.static 
+
+    # languages
+    python314
+    python2
+    ruby
+    go
   ];
 }
