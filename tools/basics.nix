@@ -16,6 +16,7 @@
     putty
     sshuttle
     chisel
+    ptunnel
 
     autoconf 
     automake 
