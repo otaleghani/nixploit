@@ -17,6 +17,10 @@
     sshuttle
     chisel
     ptunnel
+    dig 
+    dnslookup
+    wireshark
+    responder
 
     autoconf 
     automake 
