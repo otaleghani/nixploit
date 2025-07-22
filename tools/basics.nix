@@ -21,6 +21,7 @@
     dnslookup
     wireshark
     responder
+    netexec
 
     autoconf 
     automake 
