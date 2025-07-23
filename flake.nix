@@ -23,6 +23,7 @@
         shellHook = ''
           echo "Welcome to nixploit"
           echo "Loaded ${toString (lib.length packages)} tools."
+          tmux
 
           # Find a way to add temporary configurations
           # ln -sf ${self}/proxychains.conf $HOME/.proxychains/proxychains.conf
