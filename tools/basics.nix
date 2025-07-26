@@ -22,6 +22,10 @@
     wireshark
     responder
     netexec
+    bloodhound
+    python313Packages.impacket
+    smbmap
+    neo4j
 
     autoconf 
     automake 
