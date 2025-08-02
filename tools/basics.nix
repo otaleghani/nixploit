@@ -26,7 +26,14 @@
     python313Packages.impacket
     smbmap
     neo4j
+    nmap
+    evil-winrm
 
+    # proxies
+    burpsuite
+    zap
+
+    # used to install other tools
     autoconf 
     automake 
     libtool 
