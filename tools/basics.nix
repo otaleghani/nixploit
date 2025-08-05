@@ -28,6 +28,7 @@
     neo4j
     nmap
     evil-winrm
+    ffuf
 
     # proxies
     burpsuite
