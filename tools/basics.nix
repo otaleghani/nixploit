@@ -43,7 +43,6 @@
     glibc.static 
 
     # languages
-    python314
     python2
     ruby
     go

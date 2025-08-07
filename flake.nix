@@ -9,10 +9,12 @@
   outputs = { self, nixpkgs }:
     let 
       system = "x86_64-linux";
-      # pkgs = nixpkgs.legacyPackages.${system};
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          allowUnsafe = true;
+        };
       };
 
       lib = nixpkgs.lib;
@@ -24,7 +26,14 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        packages = packages ++ [ pkgs.zsh ];
+        packages = [ 
+          # You need to create your python interpreter before another package create it's own
+          # View more at https://nixos.wiki/wiki/Python#Troubleshooting
+          (pkgs.python3.withPackages (python-pkgs: [
+            python-pkgs.requests
+          ]))
+          pkgs.zsh 
+        ] ++ packages;
         shellHook = ''
           echo "Welcome to nixploit"
           echo "Loaded ${toString (lib.length packages)} tools."
