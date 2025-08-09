@@ -29,6 +29,8 @@
     nmap
     evil-winrm
     ffuf
+    medusa
+    username-anarchy
 
     # proxies
     burpsuite
