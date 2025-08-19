@@ -51,5 +51,6 @@
 
     # Databases
     mysql84
+    sqlmap
   ];
 }
