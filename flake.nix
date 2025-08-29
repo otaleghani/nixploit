@@ -31,6 +31,8 @@
           # View more at https://nixos.wiki/wiki/Python#Troubleshooting
           (pkgs.python3.withPackages (python-pkgs: [
             python-pkgs.requests
+            python-pkgs.tld
+            python-pkgs.fuzzywuzzy
           ]))
           pkgs.zsh 
         ] ++ packages;
