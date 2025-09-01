@@ -48,6 +48,7 @@
     python2
     ruby
     go
+    php
 
     # Databases
     mysql84
