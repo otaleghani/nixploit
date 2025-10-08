@@ -6,8 +6,9 @@
     # Add the different github repositories for tools etc
   };
 
-  outputs = { self, nixpkgs }:
-    let 
+  outputs =
+    { self, nixpkgs }:
+    let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -20,26 +21,36 @@
       lib = nixpkgs.lib;
 
       toolsPath = ./tools;
-      toolFiles = lib.attrNames (lib.filterAttrs (name: type: type == "regular" && lib.hasSuffix ".nix" name) (builtins.readDir toolsPath));
+      toolFiles = lib.attrNames (
+        lib.filterAttrs (name: type: type == "regular" && lib.hasSuffix ".nix" name) (
+          builtins.readDir toolsPath
+        )
+      );
       modules = map (file: import (toolsPath + "/${file}") { inherit pkgs; }) toolFiles;
       packages = lib.flatten (map (module: module.environment.systemPackages) modules);
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        packages = [ 
+        packages = [
           # You need to create your python interpreter before another package create it's own
           # View more at https://nixos.wiki/wiki/Python#Troubleshooting
           (pkgs.python3.withPackages (python-pkgs: [
             python-pkgs.requests
             python-pkgs.tld
             python-pkgs.fuzzywuzzy
+            python-pkgs.netaddr
+            python-pkgs.selenium
+            python-pkgs.levenshtein
+            python-pkgs.pyvirtualdisplay
           ]))
-          pkgs.zsh 
-        ] ++ packages;
+          pkgs.zsh
+        ]
+        ++ packages;
+
         shellHook = ''
           echo "Welcome to nixploit"
           echo "Loaded ${toString (lib.length packages)} tools."
-          tmux
+          exec tmux
 
           # Find a way to add temporary configurations
           # ln -sf ${self}/proxychains.conf $HOME/.proxychains/proxychains.conf

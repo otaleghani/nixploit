@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    docker
     neovim
     tmux
     curl
@@ -17,7 +18,7 @@
     sshuttle
     chisel
     ptunnel
-    dig 
+    dig
     dnslookup
     wireshark
     responder
@@ -32,17 +33,20 @@
     medusa
     username-anarchy
 
+    firefox-esr
+    dotnet-sdk
+
     # proxies
     burpsuite
     zap
 
     # used to install other tools
-    autoconf 
-    automake 
-    libtool 
-    pkg-config 
+    autoconf
+    automake
+    libtool
+    pkg-config
     libpcap
-    glibc.static 
+    glibc.static
 
     # languages
     python2
@@ -53,5 +57,7 @@
     # Databases
     mysql84
     sqlmap
+
+    wpscan
   ];
 }

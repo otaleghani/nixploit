@@ -9,5 +9,7 @@
     # dns
     dig
     fierce
+
+    eyewitness
   ];
 }
