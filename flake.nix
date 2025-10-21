@@ -42,19 +42,25 @@
             python-pkgs.selenium
             python-pkgs.levenshtein
             python-pkgs.pyvirtualdisplay
+            python-pkgs.click
           ]))
           pkgs.zsh
         ]
         ++ packages;
 
         shellHook = ''
-          echo "Welcome to nixploit"
-          echo "Loaded ${toString (lib.length packages)} tools."
-          exec tmux
-
-          # Find a way to add temporary configurations
-          # ln -sf ${self}/proxychains.conf $HOME/.proxychains/proxychains.conf
+          # if [ -z "$TMUX" ]; then
+          #   tmux set-option -g default-command "nix develop --command zsh"
+          #   tmux new-session -s nixploit
+          #   tmux attach-session -t nixploit
+          # fi
         '';
+        DISPLAY = "";
       };
     };
 }
+# echo "Welcome to nixploit"
+# echo "Loaded ${toString (lib.length packages)} tools."
+# exec tmux
+# Find a way to add temporary configurations
+# ln -sf ${self}/proxychains.conf $HOME/.proxychains/proxychains.conf
