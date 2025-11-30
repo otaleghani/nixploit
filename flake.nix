@@ -43,6 +43,8 @@
             python-pkgs.levenshtein
             python-pkgs.pyvirtualdisplay
             python-pkgs.click
+            python-pkgs.colorama
+            python-pkgs.urllib3
           ]))
           pkgs.zsh
         ]
@@ -55,7 +57,8 @@
           #   tmux attach-session -t nixploit
           # fi
         '';
-        DISPLAY = "";
+        DISPLAY = ":0";
+        TERM = "xterm-256color";
       };
     };
 }
