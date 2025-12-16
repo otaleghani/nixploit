@@ -45,6 +45,7 @@
             python-pkgs.click
             python-pkgs.colorama
             python-pkgs.urllib3
+            python-pkgs.pycryptodomex
           ]))
           pkgs.zsh
         ]
